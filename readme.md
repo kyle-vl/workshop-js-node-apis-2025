@@ -18,6 +18,8 @@ This server-side workshop simplifies the practice of these concepts by not using
 
 The API created in this workshop is designed to be the server-side API that will connect to the user interface that was prototyped in the HTML & CSS workshop and the React user interface that you will create in the next workshop.
 
+The exercise will be completed within the `exercise` directory which has a project template included with an incomplete `app.js` file within which you will complete the exercise by following along with the live demo. You have been provided with a `exercise-solution` directory which contains a completed version of the code in case you get stuck; however, the goal of the workshop is to work through step by step in order to build the server-side app and understand the process of creating it. The presenter on the day will talk through the process of building the app and working through step by step. 
+
 The final user interface that will be completed at the end of the workshop series will allow a user to interact with the full functionality of the API you will build in this workshop and it look something like this and:
 
 ![img](./spec/wdcc-ui-final.PNG)
