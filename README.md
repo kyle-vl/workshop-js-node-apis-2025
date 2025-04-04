@@ -1,8 +1,9 @@
 # WDCC - server-side JavaScript, Node.js, Express & APIs
 
-The activity for this workshop will be based on a live demo working through and building an server side API (Application Programming Interface). The slides will cover fundamental concepts of API development which will then be practised in the practical component of this workshop. You will be exposed to basics behind the main communication protocol online websites use 🌍!
+The activity for this workshop will be based on a live demo working through and building an server side API (Application Programming Interface). The slides will cover fundamental concepts of API development which will then be practised in the practical component of this workshop.
 
-From binge watching shows, banking to that random google search, everything online uses an API of some sort 👩‍💻👨‍💻.
+
+You will be exposed to basics behind the main communication protocol online websites use 🌍! From binge watching shows, banking to that random google search, everything online uses an API of some sort 👩‍💻👨‍💻.
 
 ## Links:
 
@@ -10,7 +11,7 @@ From binge watching shows, banking to that random google search, everything onli
 * Link to GitHub repo: [https://tinyurl.com/wdcc-js-2025-repo](https://tinyurl.com/wdcc-js-2025-repo)
 * You will need to install Node.js: [nodejs.org](http://nodejs.org/)
 * Suggested IDE: [code.visualstudio.com](http://code.visualstudio.com/)
-* Postman: [postman.com](http://postman.com/) or can use Node.js Postman plugin
+* Postman: [postman.com](http://postman.com/) or can use VSCode Postman plugin
 
 ### WDCC Workshop Passport
 
@@ -25,7 +26,30 @@ Using NodeJS express, and the provided code in the `exercise` folder; Create an 
 
 Look for `app.js` inside the `exercise/src` path. Follow along with the live demo as we complete each `TODO` task in the code.
 
+Read through a little bit of the code, spending most of our time following along, setting up, and coding with Postman and NodeJS to solve any bugs.
+
 As we approach this task, we'll be using a tool called Postman (there are alternatives) to interact with the API on the server. This is a form of manual testing to break something (possibly complex) into small chunks, being able to test and interact with code is important when working with server. Although installing NodeJS and running the code for the first time is just as important.
+
+Here's an overview of tasks. Note you may discover additional tasks which is normal during coding - explore and have fun (while focusing on APIs):
+
+- Get the code (without the server yet) in the exercise folder up and running
+  - `> npm install`
+  - `> npm run dev`
+  - Install Postman?
+    - VSCode Extension requires you to create an account
+    - Standalone download is not as integrated, but has it's own perks (including not needing account).
+- Add in express server code to start listening for HTTP API requests
+- Test the server is working and listening using Postman for the first time
+- Add in any useful logging extensions
+  - `npm install morgan`
+  - Integrate morgan with the server code as a middleware
+- Complete the following APIs, paying **careful** attention to word-by-word correctness in the request declaration e.g. `app.get("/api/contacts"....`
+  - `GET http://localhost:3000/api/contacts`
+  - `POST http://localhost:3000/api/contacts`
+  - `PATCH http://localhost:3000/api/contacts/<some-id>`
+  - `DELETE http://localhost:3000/api/contacts/<some-id>`
+  - Extra: `GET http://localhost:3000/api/contacts/<some-id>`
+- We're done! Feel free to add in anything extra if we have time to spare.
 
 ### Data Storage (Database) note
 
