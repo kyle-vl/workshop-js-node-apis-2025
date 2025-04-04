@@ -22,13 +22,13 @@ Link:
 
 ## Task
 
-Using NodeJS express, and the provided code in the `exercise` folder; Create an basic HTTP API which will **Create**, **Read**, **Update** and **Delete** data (CRUD) from a simulated database.
+Using the provided code in the `exercise` folder, create a basic HTTP API which will **Create**, **Read**, **Update** and **Delete** data (CRUD) from a simulated database.
 
 Look for `app.js` inside the `exercise/src` path. Follow along with the live demo as we complete each `TODO` task in the code.
 
 Read through a little bit of the code, spending most of our time following along, setting up, and coding with Postman and NodeJS to solve any bugs.
 
-As we approach this task, we'll be using a tool called Postman (there are alternatives) to interact with the API on the server. This is a form of manual testing to break something (possibly complex) into small chunks, being able to test and interact with code is important when working with server. Although installing NodeJS and running the code for the first time is just as important.
+As we approach this task, we'll be using a tool called Postman (there are alternatives) to interact with the API on the server. This is a form of manual testing to break something (possibly complex) into smaller testable chunks, which important when working with servers.
 
 Here's an overview of tasks. Note you may discover additional tasks which is normal during coding - explore and have fun (while focusing on APIs):
 
@@ -53,7 +53,7 @@ Here's an overview of tasks. Note you may discover additional tasks which is nor
 
 ### Data Storage (Database) note
 
-This server-side workshop simplifies possible unrelated errors by not using a proper database. This also means we need to **keep in mind data is reset between server restarts**. However, a mock database and data access functions have been included that simulate how a database would be accessed and modified through calls to JavaScript functions. Databases will be covered in a later workshop.
+This server-side workshop simplifies possible unrelated errors by not using a proper database. This also means we need to **keep in mind that data is reset between server restarts**. However, a mock database and data access functions have been included that simulate how a database would be accessed and modified through calls to JavaScript functions. Databases will be covered in a later workshop.
 
 ## Getting Help
 
