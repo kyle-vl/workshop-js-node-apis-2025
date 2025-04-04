@@ -11,6 +11,21 @@ export async function retrieveContacts() {
 }
 
 /**
+ * Retrieves a single contact from the database.
+ *
+ * @param id the id of the contact
+ * @returns a contact object if found, else null
+ */
+export async function retrieveContact(id) {
+  for (const contact of contacts) {
+    if (contact["_id"] === id) {
+      return contact;
+    }
+  }
+  return null;
+}
+
+/**
  * Creates a new contact.
  *
  * @param contact the contact to create. Must have a name. optionally a phoneNumber and funFact.
@@ -44,7 +59,7 @@ export async function updateContact(id, contact) {
   // Check for duplicate name if required
   if (contact?.name) {
     const existingName = contacts.find(
-      (c) => c._id !== id && c.name === contact.name
+      (c) => c._id !== id && c.name === contact.name,
     );
     if (existingName) throw `The name '${contact.name}' is already taken.`;
   }
