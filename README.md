@@ -18,7 +18,7 @@ You will be exposed to basics behind the main communication protocol online webs
 Please scan 🤳the workshop passport link at your earliest convenience to support the team in attendance surveys 📈?
 
 Link: 
-
+![image](https://github.com/user-attachments/assets/92678d3e-af86-4b70-bde8-1134d353b6bf)
 
 ## Task
 
