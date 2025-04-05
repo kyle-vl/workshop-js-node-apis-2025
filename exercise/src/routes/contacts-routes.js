@@ -4,10 +4,12 @@ import { retrieveContacts, createContact, retrieveContact } from "../data/contac
 const router = Router();
 
 router.get('/', async (req, res) => {
+    // Retrieve contacts list
     try {
         const allContacts = await retrieveContacts();
         console.log("Getting all contacts...");
         res.json(allContacts);
+        // Return internal server error if failed to retrieve contacts
     } catch (error) {
         res.status(500).json({ error: "Failed to retrieve contacts" });
     }
@@ -19,7 +21,7 @@ router.get('/:id', async (req, res) => {
     const contact = await retrieveContact(id);
     console.log(`Searching for contact ID ${id}...`);
 
-    // Return error if contact not in contacts list
+    // Return not found error if contact not in contacts list
     if (!contact) {
         return res.status(404).json({ message: "Contact not found" });
     }
@@ -29,10 +31,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    // Create contact name and add to contacts list
     try {
         const contactWithID = await createContact(req.body);
         console.log(`Creating new contact ${req.body.name}...`);
         return res.status(201).send(contactWithID);
+        // Return bad request error if name already exists or if name key missing
     } catch (error) {
         return res.status(400).json({ error: error.toString() });
     }
