@@ -25,4 +25,4 @@ router.post("/test3", (req, res) => {
     res.sendStatus(201);        // return success code
 })
 
-export default Router;
+export default router;

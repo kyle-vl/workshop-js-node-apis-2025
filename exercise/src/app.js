@@ -17,6 +17,7 @@ app.use(cors());                        // CORS - server can be fetched outside 
 app.use(morgan("dev"));                 // Morgan - logs useful debugging information
 
 // TODO Your application routes here
+app.use("/api/test", testRouter);
 app.use("/api/contacts", contactRouter);
 
 // TODO Start the server
