@@ -1,39 +1,24 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
+import testRouter from "./routes/test-routes.js"
+import contactRouter from "./routes/contacts-routes.js"
 
 // Set's our port to the PORT environment variable, or 3000 by default if the env is not configured.
 const PORT = process.env.PORT ?? 3000;
 
 // TODO Create the Express server
-const app = express();      // create app object
-app.use(express.json());    // activate json
+const app = express();                   // Create app object
 
 // TODO Configure middleware with app.use() (CORS support, JSON parsing support, static files support)
+app.use(express.json());                // JSON parsing - allows requests in JSON to be parsed
+app.use(express.static("public"));      // Static files - serve files in directory
+app.use(cors());                        // CORS - server can be fetched outside of domain
+app.use(morgan("dev"));                 // Morgan - logs useful debugging information
 
 // TODO Your application routes here
-
-// req (request) == data in
-// res (response) == data out
-app.get("/", (req, res) => {
-    return res.json(({ message: "Hello, world!" }));
-});
-
-// query request
-app.get("/test", (req, res) => {
-    const name = req.query.name;
-    res.send(`Your name is ${name}`);
-});
-
-// parameter request
-app.get("/test2/:param2", (req, res) => {
-    const id = req.params.param2
-    res.send(`You've accessed resource via path param ${id}`)
-});
-
-app.post("/test3", (req, res) => {
-    console.log(`This is the data from the client: ${req.body}`);
-    res.sendStatus(201);        // return success code
-})
+app.use(testRouter);
+app.use("/api/contacts", contactRouter);
 
 // TODO Start the server
 app.listen(PORT, () => {
