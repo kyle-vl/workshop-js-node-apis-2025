@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
     // Retrieve contacts list
     try {
         const allContacts = await retrieveContacts();
-        console.log("Getting all contacts...");
         res.json(allContacts);
         // Return internal server error if failed to retrieve contacts
     } catch (error) {
@@ -19,7 +18,6 @@ router.get('/:id', async (req, res) => {
     // Retrieve contact from ID passed in as URL parameter
     const id = req.params.id;
     const contact = await retrieveContact(id);
-    console.log(`Searching for contact ID ${id}...`);
 
     // Return not found error if contact not in contacts list
     if (!contact) {
@@ -34,7 +32,6 @@ router.post('/', async (req, res) => {
     // Create contact name and add to contacts list
     try {
         const contactWithID = await createContact(req.body);
-        console.log(`Creating new contact ${req.body.name}...`);
         return res.status(201).send(contactWithID);
         // Return bad request error if name already exists or if name key missing
     } catch (error) {
@@ -46,7 +43,6 @@ router.delete('/:id', async (req, res) => {
     // Retrieve contact from ID passed in as URL parameter
     const id = req.params.id;
     const contact = await retrieveContact(id);
-    console.log(`Searching for contact ID ${id}...`);
 
     // Return not found error if contact not in contacts list
     if (!contact) {
@@ -54,7 +50,6 @@ router.delete('/:id', async (req, res) => {
     }
 
     // If contact found, delete and return success
-    console.log(`Removing ${contact.name} from contact list...`);
     await deleteContact(id);
     return res.status(204).send();
 })
