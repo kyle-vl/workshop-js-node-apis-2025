@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { retrieveContacts, createContact, retrieveContact, deleteContact } from "../data/contacts-dao.js";
+import { retrieveContacts, createContact, retrieveContact, deleteContact, updateContact } from "../data/contacts-dao.js";
 
 const router = Router();
 
@@ -57,6 +57,28 @@ router.delete('/:id', async (req, res) => {
     console.log(`Removing ${contact.name} from contact list...`);
     await deleteContact(id);
     return res.status(204).send();
+})
+
+router.patch('/:id', async (req, res) => {
+    // Retrieve contact from ID passed in as URL parameter
+    const id = req.params.id;
+
+    // Retrieve contact updates from request body
+    const contactUpdates = req.body;
+
+    try {
+        const success = await updateContact(id, contactUpdates);
+
+        if (!success) {
+            // Return not found error if contact not in contacts list
+            return res.status(404).json({ message: "Contact not found" });
+        }
+        // If contact found, update and return success
+        res.status(200).json({ message: "Contact updated successfully" });
+    } catch (error) {
+        // Return bad request error if there's a validation error
+        res.status(400).json({ error: error.toString() });
+    }
 })
 
 export default router;
